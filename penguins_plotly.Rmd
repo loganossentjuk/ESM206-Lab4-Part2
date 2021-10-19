@@ -13,6 +13,7 @@ library(tidyverse)
 library(palmerpenguins)
 library(plotly)
 library(DT)
+library(here)
 ```
 
 Scatterplot of penguin flipper_length_mm (x-axis) versus body_mass_g (y-axis) , with points havig different colors based on species
@@ -27,5 +28,13 @@ ggplotly(penguins_graph)
 
 ```{r}
 datatable(penguins)
+```
+
+Bar graph of penguins by island (using geom_bar) of counts of penguins by island with fill color indicating penguin species. Then we're going to save tat  using 'ggsave()'. 
+```{r}
+ggplot(data = penguins, aes(x=island)) +
+  geom_bar(aes(fill = species))
+
+ggsave(here("final_figures", "island_counts.png"))
 ```
 
