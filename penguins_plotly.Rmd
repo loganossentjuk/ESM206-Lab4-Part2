@@ -14,3 +14,18 @@ library(palmerpenguins)
 library(plotly)
 library(DT)
 ```
+
+Scatterplot of penguin flipper_length_mm (x-axis) versus body_mass_g (y-axis) , with points havig different colors based on species
+```{r}
+#Scatter
+penguins_graph <- ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(aes(color = species))
+
+ggplotly(penguins_graph)
+```
+
+
+```{r}
+datatable(penguins)
+```
+
